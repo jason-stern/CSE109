@@ -1,0 +1,12 @@
+CFLAGS=-g -c -Wall -Wextra -Wwrite-strings
+LFLAGS=-g
+
+testSyscalls: testSyscalls.o syscalls.o
+    gcc ${LFLAGS} -o testSyscalls testSyscalls.o syscalls.o
+testSyscalls.o: testSyscalls.c
+    gcc ${CFLAGS} testSyscalls.c
+syscalls.o: syscalls.c
+    gcc ${CFLAGS} syscalls.c
+clean:
+    rm -f *.o
+    rm -f testSyscalls
